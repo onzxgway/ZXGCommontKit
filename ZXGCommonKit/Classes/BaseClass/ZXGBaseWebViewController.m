@@ -143,7 +143,11 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
+    [_webProgressView setProgress:1.f animated:YES];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [_webProgressView setProgress:1.f animated:YES];
 }
 
 #pragma mark - NJKWebViewProgressDelegate
