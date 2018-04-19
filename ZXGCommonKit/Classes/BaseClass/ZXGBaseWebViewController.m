@@ -10,9 +10,7 @@
 #import "Masonry.h"
 
 @interface ZXGBaseWebViewController ()
-/** <#备注#>*/
 @property (nonatomic, strong) UIWebView *webView;
-
 @end
 
 @implementation ZXGBaseWebViewController
