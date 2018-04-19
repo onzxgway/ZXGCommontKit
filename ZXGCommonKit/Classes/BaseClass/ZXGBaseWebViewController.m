@@ -9,7 +9,7 @@
 #import "ZXGBaseWebViewController.h"
 #import "Masonry.h"
 
-@interface ZXGBaseWebViewController ()
+@interface ZXGBaseWebViewController () <NJKWebViewProgressDelegate>
 @property (nonatomic, strong) UIWebView *webView;
 @end
 
