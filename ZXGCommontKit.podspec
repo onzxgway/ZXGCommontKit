@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZXGCommontKit"
-  s.version      = "0.0.1"
+  s.version      = "0419"
   s.summary      = "工具 分类 父类等."
 
   # This description is used to generate tags and improve search results.
