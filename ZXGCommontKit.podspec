@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+  从明天起,关心粮食和蔬菜,我有一所房子,面朝大海,春暖花开
                    DESC
 
   s.homepage     = "https://github.com/onzxgway/ZXGCommontKit"
