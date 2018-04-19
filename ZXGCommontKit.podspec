@@ -136,6 +136,5 @@ Pod::Spec.new do |s|
   s.dependency 'FMDB', '~> 2.7.2'
   s.dependency 'NJKWebViewProgress', '~> 0.2.3'
   s.dependency 'Masonry', '~> 1.1.0'
-  s.dependency 'YYKit', '~> 1.0.9'
 
 end
