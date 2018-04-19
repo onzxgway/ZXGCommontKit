@@ -9,5 +9,19 @@
 #ifndef ZXGCommonKit_h
 #define ZXGCommonKit_h
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "XVCommonMacro.h"
+#import "XVColorMacros.h"
+#import "IOSDeviceMacro.h"
+
+/**************三方************/
+#import <UIButton+WebCache.h>
+#import <UIImageView+WebCache.h>
+#import <Masonry.h>
+#import <YYKit.h>
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
 
 #endif /* ZXGCommonKit_h */
