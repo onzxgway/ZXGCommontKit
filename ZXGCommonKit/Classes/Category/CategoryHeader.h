@@ -12,7 +12,6 @@
 #import "UIImage+Common.h"
 #import "UIView+Extension.h"
 #import "NSString+Common.h"
-#import "UIView+Extension.h"
 #import "UIViewController+Dealloc.h"
 #import "NSArray+Log.h"
 
