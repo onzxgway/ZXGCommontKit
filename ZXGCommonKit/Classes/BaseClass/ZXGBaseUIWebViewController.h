@@ -14,7 +14,7 @@
 #import "XVColorMacros.h"
 #import "IOSDeviceMacro.h"
 
-@interface ZXGBaseWebViewController : UIViewController <UIWebViewDelegate> {
+@interface ZXGBaseUIWebViewController : UIViewController <UIWebViewDelegate> {
     @protected
     ZXGBaseWebViewModel *_contentModel;
     

@@ -17,7 +17,7 @@
 #import "IOSDeviceMacro.h"
 
 /**************************/
-#import "ZXGBaseWebViewController.h"
+#import "ZXGBaseUIWebViewController.h"
 
 /**************三方************/
 #import <UIButton+WebCache.h>

@@ -6,14 +6,14 @@
 //  Copyright © 2018年 朱献国. All rights reserved.
 //
 
-#import "ZXGBaseWebViewController.h"
+#import "ZXGBaseUIWebViewController.h"
 #import "Masonry.h"
 
-@interface ZXGBaseWebViewController () <NJKWebViewProgressDelegate>
+@interface ZXGBaseUIWebViewController () <NJKWebViewProgressDelegate>
 @property (nonatomic, strong) UIWebView *webView;
 @end
 
-@implementation ZXGBaseWebViewController
+@implementation ZXGBaseUIWebViewController
 
 #pragma mark - LifeCycle
 
