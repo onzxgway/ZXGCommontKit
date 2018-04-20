@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
   s.resource_bundles = {
-                          'BaseClassResources' => ['ZXGCommonKit/Assets/BaseClassResources/**/*']
+                          'ZXGCommontKit' => ['ZXGCommonKit/Assets/**/*']
                         }
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
