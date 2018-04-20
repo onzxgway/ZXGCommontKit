@@ -13,9 +13,9 @@
 - (CGSize)calculateNewSizeForCroppingBox:(CGSize)croppingBox;
 
 // path为图片的键值
-- (void)saveToCacheWithKey:(NSString *)key;
+//- (void)saveToCacheWithKey:(NSString *)key;
 
-+ (UIImage *)loadFromCacheWithKey:(NSString *)key;
+//+ (UIImage *)loadFromCacheWithKey:(NSString *)key;
 
 @end
 

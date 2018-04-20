@@ -127,7 +127,7 @@
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;
         _webView.mediaPlaybackAllowsAirPlay = YES;
-        if (IS_IOS11()) {
+        if (@available(iOS 11.0, *)) {
             _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
     }
