@@ -10,7 +10,7 @@
 #import "Masonry.h"
 
 @interface ZXGBaseWKWebViewController ()
-@property (nonatomic, weak  ) CALayer *progressLayer;
+@property (nonatomic, strong) CALayer *progressLayer;
 @end
 
 @implementation ZXGBaseWKWebViewController
@@ -36,6 +36,10 @@
     [self.progressLayer removeFromSuperlayer];
 }
 
+- (void)dealloc {
+    [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
 #pragma mark - CreateViews
 - (void)initUI {
     self.view.backgroundColor = [UIColor blackColor];
@@ -50,13 +54,13 @@
     
     //分享
     if (ZXGWebPageDisplayTypeNormal == _contentModel.type) {
-        
+        [self createSubViews:NO];
     }
     else if (ZXGWebPageDisplayTypeShare == _contentModel.type) {
         [self createSubViews:YES];
-        //加载链接
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_contentModel.articleLinkStr]]];
     }
+    //加载链接
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_contentModel.articleLinkStr]]];
 }
 
 // hasShare   导航栏右边是否有分享按钮 YES:显示右边按钮  NO:不显示右边按钮
@@ -69,54 +73,35 @@
     
     if (hasShare) {
         //右边分享按钮
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"activity_share"] style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:GET_IMAGE(@"activity_share") style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick:)];
     }
-    
-//    //添加进度条
-//    _webProgress = [[NJKWebViewProgress alloc] init];
-//    _webProgress.progressDelegate = self;
-//    _webProgress.webViewProxyDelegate = self;
-//
-//    CGRect navFrame = self.navigationController.navigationBar.frame;
-//    CGRect barFrame = CGRectMake(0, navFrame.size.height, navFrame.size.width, 2.0f);
-//    _webProgressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-//    _webProgressView.progressBarView.backgroundColor = HEXCOLOR(0xff6f26);
-//    [_webProgressView setProgress:0.0 animated:YES];
     
 }
 
 
 #pragma mark - Private
-- (void)shareButtonClick {
-    
-}
-
--(void)setupProgress {
-    UIView *progress = [[UIView alloc] init];
-    progress.frame = CGRectMake(0, 0, SCREEN_WIDTH, 3);
-    progress.backgroundColor = kClearColor;
-    [self.view addSubview:progress];
-    
-    CALayer *layer = [CALayer layer];
-    layer.frame = CGRectMake(0, 0, 0, 3);
-    layer.backgroundColor = kRandomColor.CGColor;
-    [progress.layer addSublayer:layer];
-    self.progressLayer = layer;
+- (void)shareButtonClick:(UIBarButtonItem *)barBtnItem {
 }
 
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
+    CGFloat newProgress = [[change objectForKey:@"new"] floatValue];
+    CGFloat oldProgress = [[change objectForKey:@"old"] floatValue];
+    
     if (STRING_EQUAL(@"estimatedProgress", keyPath)) {
         self.progressLayer.opacity = 1.f;
-        if ([change[@"new"] floatValue] < [change[@"old"] floatValue]) {
-            return;
-        }
-        self.progressLayer.frame = CGRectMake(0, 0, SCREEN_WIDTH * [change[@"new"] floatValue], 3);
-        if ([change[@"new"] floatValue] == 1.0) {
+        if (newProgress < oldProgress) return;
+        
+        CGRect originF = self.progressLayer.frame;
+        originF.size.width = SCREEN_WIDTH * newProgress;
+        self.progressLayer.frame = originF;
+        if (newProgress >= 1.0) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.progressLayer.opacity = 0;
-                self.progressLayer.frame = CGRectMake(0, 0, 0, 3);
+                CGRect originF = self.progressLayer.frame;
+                originF.size.width = 0;
+                self.progressLayer.frame = originF;
             });
         }
     }
@@ -197,7 +182,32 @@
     //decisionHandler(WKNavigationResponsePolicyCancel);
 }
 
+#pragma mark - WKUIDelegate
+/* 在本Webview打开网址,如果返回的是原webview会崩溃 */
+-(WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    if (!navigationAction.targetFrame.isMainFrame) {
+        [webView loadRequest:navigationAction.request];
+    }
+    return nil;
+}
 
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message?:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }])];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message?:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(NO);
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(YES);
+    }])];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end

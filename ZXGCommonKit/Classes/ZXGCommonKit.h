@@ -18,6 +18,7 @@
 
 /**************************/
 #import "ZXGBaseUIWebViewController.h"
+#import "ZXGBaseWKWebViewController.h"
 
 /**************三方************/
 #import <UIButton+WebCache.h>

@@ -8,22 +8,21 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import "ZXGBaseWebViewModel.h"
-//#import "NJKWebViewProgress.h"
-//#import "NJKWebViewProgressView.h"
 #import "XVColorMacros.h"
 #import "XVCommonMacro.h"
 #import "IOSDeviceMacro.h"
 
-@interface ZXGBaseWKWebViewController : UIViewController <WKNavigationDelegate> {
+@interface ZXGBaseWKWebViewController : UIViewController <WKNavigationDelegate, WKUIDelegate> {
 @protected
     ZXGBaseWebViewModel *_contentModel;
     
     WKWebView              *_webView;
-//    NJKWebViewProgressView *_webProgressView;
-//    NJKWebViewProgress     *_webProgress;
 }
 
 /** model*/
 @property (nonatomic, strong) ZXGBaseWebViewModel *contentModel;
+
+/** 分享按钮点击事件*/
+- (void)shareButtonClick:(UIBarButtonItem *)barBtnItem;
 
 @end

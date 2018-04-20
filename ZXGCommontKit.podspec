@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZXGCommontKit"
-  s.version      = "041912"
+  s.version      = "042014"
   s.summary      = "工具 分类 父类等."
 
   # This description is used to generate tags and improve search results.
@@ -105,6 +105,9 @@ Pod::Spec.new do |s|
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
+  s.resource_bundles = {
+                          'BaseClassResources' => ['ZXGCommonKit/Assets/BaseClassResources/**/*']
+                        }
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
