@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UIImage (Picker)
+
++ (NSString *)bundlePickerName:(NSString *)iconName;
+
++ (UIImage *)imageNamedWithPickerName:(NSString *)name;
+
+@end
+
+
+
 @interface UIImage (Common)
 
 - (CGSize)calculateNewSizeForCroppingBox:(CGSize)croppingBox;

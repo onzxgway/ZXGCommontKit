@@ -16,6 +16,19 @@
 //由弧度转换角度
 #define kRadianToDegrees(radian) (radian * 180.0) / (M_PI)
 
+@implementation UIImage (Picker)
+
++ (NSString *)bundlePickerName:(NSString *)iconName{
+    NSString *imagePath = [@"BaseClassResources.bundle" stringByAppendingPathComponent:iconName];
+    return imagePath;
+}
++ (UIImage *)imageNamedWithPickerName:(NSString *)name {
+    NSString *imageName = [self bundlePickerName:name];
+    return [[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",imageName]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
+@end
+
 
 @implementation UIImage (Common)
 

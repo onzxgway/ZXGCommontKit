@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
+#import "UIImage+Common.h"
 
 @interface ZXGBaseUIWebViewController () <NJKWebViewProgressDelegate>
 @property (nonatomic, strong) UIWebView *webView;
@@ -83,7 +84,7 @@
     
     if (hasShare) {
         //右边分享按钮
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"activity_share"] style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamedWithPickerName:@"activity_share"] style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick)];
     }
     
     //添加进度条

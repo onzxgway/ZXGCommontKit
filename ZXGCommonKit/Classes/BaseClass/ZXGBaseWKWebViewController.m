@@ -8,6 +8,7 @@
 
 #import "ZXGBaseWKWebViewController.h"
 #import "Masonry.h"
+#import "UIImage+Common.h"
 
 @interface ZXGBaseWKWebViewController ()
 @property (nonatomic, strong) CALayer *progressLayer;
@@ -73,7 +74,7 @@
     
     if (hasShare) {
         //右边分享按钮
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:GET_IMAGE(@"activity_share") style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamedWithPickerName:@"activity_share"] style:UIBarButtonItemStyleDone target:self action:@selector(shareButtonClick:)];
     }
     
 }
