@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ZXGBaseWebViewModel.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "NJKWebViewProgress.h"
-#import "NJKWebViewProgressView.h"
 #import "XVColorMacros.h"
 #import "IOSDeviceMacro.h"
 
@@ -19,8 +17,6 @@
     ZXGBaseWebViewModel *_contentModel;
     
     UIWebView              *_webView;
-    NJKWebViewProgressView *_webProgressView;
-    NJKWebViewProgress     *_webProgress;
 }
 
 /** model*/

@@ -7,10 +7,14 @@
 //
 
 #import "ZXGBaseUIWebViewController.h"
-#import <Masonry/Masonry.h>
+#import "Masonry.h"
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
 
 @interface ZXGBaseUIWebViewController () <NJKWebViewProgressDelegate>
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) NJKWebViewProgressView *webProgressView;
+@property (nonatomic, strong) NJKWebViewProgress     *webProgress;
 @end
 
 @implementation ZXGBaseUIWebViewController
