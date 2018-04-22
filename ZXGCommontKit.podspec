@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
@@ -104,8 +104,10 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "ZXGCommonKit/Assets/*.png"
-  # s.resource_bundles = {'ZXGCommontKit' => ['ZXGCommonKit/Assets/**/*']}
+  # s.resources = "Resources/*.png"
+  s.resource_bundles = {
+                          'ZXGCommontKit' => ['ZXGCommonKit/Assets/**/*']
+                        }
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
