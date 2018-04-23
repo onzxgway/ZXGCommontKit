@@ -11,6 +11,65 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (XXXExtension)
 
+#pragma mark - Retrieving Color Information
+/**
+ The color's red component value in RGB color space.
+ The value of this property is a float in the range `0.0` to `1.0`.
+ */
+@property (nonatomic, readonly) CGFloat red;
+
+/**
+ The color's green component value in RGB color space.
+ The value of this property is a float in the range `0.0` to `1.0`.
+ */
+@property (nonatomic, readonly) CGFloat green;
+
+/**
+ The color's blue component value in RGB color space.
+ The value of this property is a float in the range `0.0` to `1.0`.
+ */
+@property (nonatomic, readonly) CGFloat blue;
+/**
+ The color's alpha component value.
+ The value of this property is a float in the range `0.0` to `1.0`.
+ */
+@property (nonatomic, readonly) CGFloat alpha;
+
+#pragma mark - Get color's description
+
+/**
+ Returns the rgb value in hex.
+ @return hex value of RGB,such as 0x66ccff.
+ */
+- (uint32_t)rgbValue;
+
+/**
+ Returns the rgba value in hex.
+ 
+ @return hex value of RGBA,such as 0x66ccffff.
+ */
+- (uint32_t)rgbaValue;
+
+/**
+ Returns the color's RGB value as a hex string (lowercase).
+ Such as @"0066cc".
+ 
+ It will return nil when the color space is not RGB
+ 
+ @return The color's value as a hex string.
+ */
+- (nullable NSString *)hexString;
+
+/**
+ Returns the color's RGBA value as a hex string (lowercase).
+ Such as @"0066ccff".
+ 
+ It will return nil when the color space is not RGBA
+ 
+ @return The color's value as a hex string.
+ */
+- (nullable NSString *)hexStringWithAlpha;
+
 /**
  Creates and returns a color object from hex string.
  
@@ -77,18 +136,62 @@ NS_ASSUME_NONNULL_END
  */
 
 // 定义通用颜色
+#ifndef kBlackColor
 #define kBlackColor         [UIColor blackColor]
+#endif
+
+#ifndef kWhiteColor
 #define kWhiteColor         [UIColor whiteColor]
+#endif
+
+#ifndef kGrayColor
 #define kGrayColor          [UIColor grayColor]
+#endif
+
+#ifndef kDarkGrayColor
 #define kDarkGrayColor      [UIColor darkGrayColor]
+#endif
+
+#ifndef kLightGrayColor
 #define kLightGrayColor     [UIColor lightGrayColor]
+#endif
+
+#ifndef kRedColor
 #define kRedColor           [UIColor redColor]
+#endif
+
+#ifndef kGreenColor
 #define kGreenColor         [UIColor greenColor]
+#endif
+
+#ifndef kBlueColor
 #define kBlueColor          [UIColor blueColor]
+#endif
+
+#ifndef kCyanColor
 #define kCyanColor          [UIColor cyanColor]
+#endif
+
+#ifndef kYellowColor
 #define kYellowColor        [UIColor yellowColor]
+#endif
+
+#ifndef kMagentaColor
 #define kMagentaColor       [UIColor magentaColor]
+#endif
+
+#ifndef kOrangeColor
 #define kOrangeColor        [UIColor orangeColor]
+#endif
+
+#ifndef kPurpleColor
 #define kPurpleColor        [UIColor purpleColor]
+#endif
+
+#ifndef kClearColor
 #define kClearColor         [UIColor clearColor]
+#endif
+
+#ifndef kRandomColor
 #define kRandomColor        RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#endif

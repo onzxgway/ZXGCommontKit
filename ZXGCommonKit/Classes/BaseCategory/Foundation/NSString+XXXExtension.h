@@ -10,7 +10,6 @@
 @interface NSString (XXXExtension)
 
 /**
- Trim blank characters (space and newline) in head and tail.
  去除字符串头部和尾部的空白符和换行符
  
  @return the trimmed string.
