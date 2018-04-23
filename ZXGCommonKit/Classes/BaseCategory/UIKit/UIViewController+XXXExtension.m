@@ -1,15 +1,14 @@
 //
-//  UIViewController+Dealloc.m
-//  Macro_And_Categorys
+//  UIViewController+XXXExtension.m
+//  AFNetworking
 //
-//  Created by 朱献国 on 2018/4/17.
-//  Copyright © 2018年 feizhu. All rights reserved.
+//  Created by 朱献国 on 2018/4/23.
 //
 
-#import "UIViewController+Dealloc.h"
+#import "UIViewController+XXXExtension.h"
 #import <objc/message.h>
 
-@implementation UIViewController (Dealloc)
+@implementation UIViewController (XXXExtension)
 
 //从磁盘加载到内存的时候执行
 + (void)load {

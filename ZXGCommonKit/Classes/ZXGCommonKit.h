@@ -29,6 +29,10 @@
 #import <NJKWebViewProgressView.h>
 
 /************Category**************/
-#import "CategoryHeader.h"
+#import "UIImage+Common.h"
+#import "UIView+Extension.h"
+#import "NSString+Common.h"
+#import "UIViewController+Dealloc.h"
+#import "NSArray+Log.h"
 
 #endif /* ZXGCommonKit_h */
