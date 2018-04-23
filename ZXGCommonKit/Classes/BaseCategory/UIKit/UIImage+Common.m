@@ -7,9 +7,9 @@
 //
 
 #import "UIImage+Common.h"
+#import "UIColor+XXXExtension.h"
 #import <Accelerate/Accelerate.h>
 #import <float.h>
-#import "XVColorMacros.h"
 
 //由角度转换弧度
 #define kDegreesToRadian(x)      (M_PI * (x) / 180.0)

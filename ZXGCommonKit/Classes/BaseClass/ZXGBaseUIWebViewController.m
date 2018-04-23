@@ -11,6 +11,7 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 #import "UIImage+Common.h"
+#import "UIColor+XXXExtension.h"
 
 @interface ZXGBaseUIWebViewController () <NJKWebViewProgressDelegate>
 @property (nonatomic, strong) UIWebView *webView;
@@ -96,7 +97,7 @@
     CGRect navFrame = self.navigationController.navigationBar.frame;
     CGRect barFrame = CGRectMake(0, navFrame.size.height, navFrame.size.width, 2.0f);
     _webProgressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-    _webProgressView.progressBarView.backgroundColor = HEXCOLOR(0xff6f26);
+    _webProgressView.progressBarView.backgroundColor = UIColorHex(0xff6f26);
     [_webProgressView setProgress:0.0 animated:YES];
     
 }

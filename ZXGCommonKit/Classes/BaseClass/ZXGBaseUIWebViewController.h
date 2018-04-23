@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ZXGBaseWebViewModel.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "XVColorMacros.h"
 #import "IOSDeviceMacro.h"
 
 @interface ZXGBaseUIWebViewController : UIViewController <UIWebViewDelegate> {

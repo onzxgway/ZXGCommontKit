@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import "ZXGBaseWebViewModel.h"
-#import "XVColorMacros.h"
 #import "XVCommonMacro.h"
 #import "IOSDeviceMacro.h"
 

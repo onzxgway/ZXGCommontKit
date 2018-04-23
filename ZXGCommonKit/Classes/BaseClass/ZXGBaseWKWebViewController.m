@@ -9,6 +9,7 @@
 #import "ZXGBaseWKWebViewController.h"
 #import "Masonry.h"
 #import "UIImage+Common.h"
+#import "UIColor+XXXExtension.h"
 
 @interface ZXGBaseWKWebViewController ()
 @property (nonatomic, strong) CALayer *progressLayer;

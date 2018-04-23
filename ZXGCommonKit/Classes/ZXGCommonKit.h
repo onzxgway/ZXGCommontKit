@@ -13,7 +13,6 @@
 #import <UIKit/UIKit.h>
 
 #import "XVCommonMacro.h"
-#import "XVColorMacros.h"
 #import "IOSDeviceMacro.h"
 
 /**************************/
@@ -30,9 +29,10 @@
 
 /************Category**************/
 #import "UIImage+Common.h"
-#import "UIView+Extension.h"
 #import "NSString+Common.h"
-#import "UIViewController+Dealloc.h"
+#import "UIViewController+XXXExtension.h"
+#import "UIView+XXXExtension.h"
+#import "UIColor+XXXExtension.h"
 #import "NSArray+Log.h"
 
 #endif /* ZXGCommonKit_h */
