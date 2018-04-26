@@ -7,7 +7,6 @@
 //
 
 #import "ZXGRootTableViewCell.h"
-#import "UIColor+XXXExtension.h"
 
 @implementation ZXGRootTableViewCell
 
@@ -35,9 +34,9 @@
         }
     }
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundView.backgroundColor = kRandomColor;
-    self.contentView.backgroundColor = kRandomColor;
-    self.backgroundColor = kRandomColor;
+    self.backgroundView.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end
