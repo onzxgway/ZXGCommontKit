@@ -21,6 +21,10 @@
 #import "ZXGRootTableView.h"
 #import "ZXGBaseTableView.h"
 #import "ZXGRootModel.h"
+#import "ZXGBaseTableViewSectionModel.h"
+#import "ZXGBaseTableViewCellModel.h"
+#import "ZXGRootTableViewCell.h"
+#import "ZXGBaseTableViewCell.h"
 
 /**************三方************/
 #import "UIButton+WebCache.h"

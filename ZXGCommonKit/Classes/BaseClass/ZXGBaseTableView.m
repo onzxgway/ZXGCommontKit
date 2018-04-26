@@ -7,6 +7,8 @@
 //
 
 #import "ZXGBaseTableView.h"
+#import "ZXGBaseTableViewSectionModel.h"
+#import "ZXGBaseTableViewCell.h"
 
 @interface ZXGBaseTableView ()
 
@@ -52,7 +54,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
+    ZXGBaseTableViewCellModel *model = [sectionModel modelAtIndex:indexPath.row];
+    if (!model.cellClass) {
+        NSAssert(NO, @"[<cellClass> 不能为空]");
+    }
+    ZXGBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:model.reuseIdentifier];
+    if (!cell) {
+        cell = [(ZXGBaseTableViewCell *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:model.reuseIdentifier];
+    }
+    [cell settingModel:model secModel:sectionModel indexPath:indexPath];
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
