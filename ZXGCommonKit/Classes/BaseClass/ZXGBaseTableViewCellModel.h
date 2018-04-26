@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) Class cellClass; //cell类
 
+@property (nonatomic, assign) CGFloat rowHeight; // cell行高 默认44
+
 @end
 
 NS_ASSUME_NONNULL_END

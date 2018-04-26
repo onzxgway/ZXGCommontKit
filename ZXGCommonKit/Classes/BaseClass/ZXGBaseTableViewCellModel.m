@@ -9,4 +9,13 @@
 
 @implementation ZXGBaseTableViewCellModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _rowHeight = 44;
+    }
+    return self;
+}
+
 @end

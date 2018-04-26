@@ -68,5 +68,12 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_dataSourceArr.count ==0) return 0;
+    
+    ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
+    ZXGBaseTableViewCellModel *model = [sectionModel modelAtIndex:indexPath.row];
+    return model.rowHeight <= 0 ? 44 : model.rowHeight;
+}
 
 @end
