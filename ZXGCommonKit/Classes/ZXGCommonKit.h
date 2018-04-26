@@ -19,6 +19,8 @@
 #import "ZXGBaseUIWebViewController.h"
 #import "ZXGBaseWKWebViewController.h"
 #import "ZXGRootTableView.h"
+#import "ZXGBaseTableView.h"
+#import "ZXGRootModel.h"
 
 /**************三方************/
 #import "UIButton+WebCache.h"
