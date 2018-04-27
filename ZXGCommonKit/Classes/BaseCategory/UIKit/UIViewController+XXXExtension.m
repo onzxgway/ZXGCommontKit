@@ -22,7 +22,7 @@
 }
 
 - (void)my_dealloc {
-    NSLog(@"☺对象 %@ 销毁了☺", NSStringFromClass(self.class));
+    NSLog(@"☺ %@对象 销毁了 ☺", NSStringFromClass(self.class));
     [self my_dealloc];
 }
 

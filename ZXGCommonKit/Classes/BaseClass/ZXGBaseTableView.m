@@ -8,7 +8,7 @@
 
 #import "ZXGBaseTableView.h"
 #import "ZXGBaseTableViewSectionModel.h"
-#import "ZXGBaseTableViewCell.h"
+#import "ZXGTableViewCellAble.h"
 
 @interface ZXGBaseTableView ()
 
@@ -59,9 +59,9 @@
     if (!model.cellClass) {
         NSAssert(NO, @"[<cellClass> 不能为空]");
     }
-    ZXGBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:model.reuseIdentifier];
+    UITableViewCell<ZXGTableViewCellAble> *cell = [tableView dequeueReusableCellWithIdentifier:model.reuseIdentifier];
     if (!cell) {
-        cell = [(ZXGBaseTableViewCell *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:model.reuseIdentifier];
+        cell = [(UITableViewCell<ZXGTableViewCellAble> *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:model.reuseIdentifier];
     }
     [cell settingModel:model secModel:sectionModel indexPath:indexPath];
     return cell;
@@ -69,7 +69,7 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_dataSourceArr.count ==0) return 0;
+    if (_dataSourceArr.count == 0) return 0;
     
     ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
     id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];

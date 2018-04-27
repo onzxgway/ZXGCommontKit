@@ -16,6 +16,13 @@
 @implementation ZXGBaseTableViewController
 
 #pragma mark - LifeCycle
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _dataSource = [NSMutableArray array];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,13 +49,6 @@
         _tableView.backgroundView.backgroundColor = kRandomColor;
     }
     return _tableView;
-}
-
-- (NSMutableArray *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-    }
-    return _dataSource;
 }
 
 #pragma mark - Network

@@ -22,9 +22,9 @@
 #import "ZXGBaseTableView.h"
 #import "ZXGRootModel.h"
 #import "ZXGBaseTableViewSectionModel.h"
-#import "ZXGBaseTableViewCellModel.h"
+#import "ZXGTableViewCellModelAble.h"
 #import "ZXGRootTableViewCell.h"
-#import "ZXGBaseTableViewCell.h"
+#import "ZXGTableViewCellAble.h"
 #import "ZXGBaseTableViewController.h"
 
 /**************三方************/
