@@ -9,6 +9,6 @@
 
 @implementation ZXGBaseTableViewCell
 
-- (void)settingModel:(ZXGBaseTableViewCellModel *)model secModel:(ZXGBaseTableViewSectionModel *)secModel indexPath:(NSIndexPath *)indexPath {}
+- (void)settingModel:(id<ZXGTableViewCellModelAble>)model secModel:(ZXGBaseTableViewSectionModel *)secModel indexPath:(NSIndexPath *)indexPath {}
 
 @end

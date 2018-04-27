@@ -13,7 +13,7 @@
 @end
 
 @implementation ZXGBaseTableViewSectionModel {
-    NSMutableArray<ZXGBaseTableViewCellModel *> *_sectionModels;
+    NSMutableArray<id<ZXGTableViewCellModelAble>> *_sectionModels;
     //    OSSpinLock          _lock;
 }
 
@@ -26,13 +26,13 @@
     return self;
 }
 
-- (void)addCellModel:(ZXGBaseTableViewCellModel *)model {
+- (void)addCellModel:(id<ZXGTableViewCellModelAble>)model {
     if (model) {
         [_sectionModels addObject:model];
     }
 }
 
-- (void)addCellModels:(NSMutableArray<ZXGBaseTableViewCellModel *> *)models {
+- (void)addCellModels:(NSMutableArray<id<ZXGTableViewCellModelAble>> *)models {
     if (models) {
         [_sectionModels addObjectsFromArray:models];
     }
@@ -42,7 +42,7 @@
     return _sectionModels.count;
 }
 
-- (void)removeCellModel:(ZXGBaseTableViewCellModel *)model {
+- (void)removeCellModel:(id<ZXGTableViewCellModelAble>)model {
     if (model) {
         [_sectionModels removeObject:model];
     }
@@ -60,14 +60,14 @@
     }
 }
 
-- (ZXGBaseTableViewCellModel *)modelAtIndex:(NSUInteger)index {
+- (id<ZXGTableViewCellModelAble>)modelAtIndex:(NSUInteger)index {
     if (index >= _sectionModels.count) {
         return nil;
     }
     return [_sectionModels objectAtIndex:index];
 }
 
-- (NSUInteger)indexOfModel:(ZXGBaseTableViewCellModel *)anObject {
+- (NSUInteger)indexOfModel:(id<ZXGTableViewCellModelAble>)anObject {
     if (!anObject) {
         return MAXFLOAT;
     }

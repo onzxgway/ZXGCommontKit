@@ -1,15 +1,13 @@
 //
-//  ZXGBaseTableViewCellModel.h
-//  AFNetworking
+//  ZXGTableViewCellModelAble.h
+//  Pods
 //
-//  Created by 朱献国 on 2018/4/26.
+//  Created by 朱献国 on 2018/4/27.
 //
 
-#import "ZXGRootModel.h"
+@protocol ZXGTableViewCellModelAble <NSObject>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface ZXGBaseTableViewCellModel : ZXGRootModel
+@required
 
 @property (nonatomic, copy) NSString *reuseIdentifier;  //cell重用标识符
 
@@ -18,5 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat rowHeight; // cell行高 默认44
 
 @end
-
-NS_ASSUME_NONNULL_END
