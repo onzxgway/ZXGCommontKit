@@ -76,4 +76,13 @@
     return model.rowHeight <= 0 ? 44 : model.rowHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
+    id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
+    
+    
+}
+
 @end
