@@ -42,5 +42,6 @@
 #import "UIView+XXXExtension.h"
 #import "UIColor+XXXExtension.h"
 #import "NSArray+Log.h"
+#import "CALayer+XXXExtension.h"
 
 #endif /* ZXGCommonKit_h */
