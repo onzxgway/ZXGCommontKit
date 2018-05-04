@@ -36,7 +36,7 @@
 - (void)setupSelf {
     
     self.delaysContentTouches = NO;
-    self.canCancelContentTouches = YES;
+//    self.canCancelContentTouches = YES;
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 禁用UITableViewWrapperView的延迟
@@ -54,11 +54,11 @@
     }
 }
 
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view {
-    if ([view isKindOfClass:[UIControl class]]) {
-        return YES;
-    }
-    return [super touchesShouldCancelInContentView:view];
-}
+//- (BOOL)touchesShouldCancelInContentView:(UIView *)view {
+//    if ([view isKindOfClass:[UIControl class]]) {
+//        return YES;
+//    }
+//    return [super touchesShouldCancelInContentView:view];
+//}
 
 @end

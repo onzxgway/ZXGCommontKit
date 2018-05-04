@@ -80,7 +80,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
-    id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
+//    id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
     
     
 }
