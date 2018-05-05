@@ -1,13 +1,11 @@
 //
-//  Foundation+Log.m
+//  NSDictionary+Log.m
 //  ZXGCommontKit
 //
 //  Created by 朱献国 on 2018/5/5.
 //
 
-#ifdef DEBUG
-
-#import <Foundation/Foundation.h>
+#import "NSDictionary+Log.h"
 
 @implementation NSArray (Log)
 
@@ -29,7 +27,7 @@
     }
     
     return strM.copy;
-
+    
 }
 
 @end
@@ -54,7 +52,7 @@
     }
     
     return strM.copy;
-
+    
 }
 
 @end
@@ -62,5 +60,3 @@
 @implementation NSSet (Log)
 
 @end
-
-#endif
