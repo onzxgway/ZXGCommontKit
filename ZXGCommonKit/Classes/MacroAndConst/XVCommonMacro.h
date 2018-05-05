@@ -41,7 +41,7 @@
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 #define NOTIFI_CENTER [NSNotificationCenter defaultCenter]
 #define APPLICATION   [UIApplication sharedApplication]
-#define APPDELEGATE   ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define APPDELEGATE   (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
 //应用的版本
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
