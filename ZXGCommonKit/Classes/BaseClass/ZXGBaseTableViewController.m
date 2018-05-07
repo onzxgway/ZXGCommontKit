@@ -47,6 +47,7 @@
         //        _tableView.scrollIndicatorInsets = _tableView.contentInset;
         _tableView.backgroundColor = kRandomColor;
         _tableView.backgroundView.backgroundColor = kRandomColor;
+        _tableView.controller = self;
     }
     return _tableView;
 }

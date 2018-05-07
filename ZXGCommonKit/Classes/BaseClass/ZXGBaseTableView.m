@@ -9,6 +9,7 @@
 #import "ZXGBaseTableView.h"
 #import "ZXGBaseTableViewSectionModel.h"
 #import "ZXGTableViewCellAble.h"
+#import "UIView+XXXExtension.h"
 
 @interface ZXGBaseTableView ()
 
@@ -62,10 +63,25 @@
     UITableViewCell<ZXGTableViewCellAble> *cell = [tableView dequeueReusableCellWithIdentifier:model.reuseIdentifier];
     if (!cell) {
         cell = [(UITableViewCell<ZXGTableViewCellAble> *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:model.reuseIdentifier];
+        cell.delegate = _controller;
     }
     [cell settingModel:model secModel:sectionModel indexPath:indexPath];
     return cell;
 }
+
+// + (BOOL) getVariableWithClass:(Class) myClass varName:(NSString *)name {
+//     unsigned int outCount, i;
+//     Ivar *ivars = class_copyIvarList(myClass, &outCount);
+//     for (i = 0; i < outCount; i++) {
+//         Ivar property = ivars[i];
+//         NSString *keyName = [NSString stringWithCString:ivar_getName(property) encoding:NSUTF8StringEncoding];
+//         keyName = [keyName stringByReplacingOccurrencesOfString:@"_" withString:@""];
+//         if ([keyName isEqualToString:name]) {
+//             return YES;
+//         }
+//     }
+//     return NO;
+// }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

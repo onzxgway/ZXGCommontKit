@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "ZXGBaseTableView.h"
 
-@interface ZXGBaseTableViewController : UIViewController {
+@interface ZXGBaseTableViewController : UIViewController <ZXGTableViewCellDelegate> {
     @protected
     ZXGBaseTableView *_tableView;
     NSMutableArray *_dataSource;

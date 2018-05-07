@@ -66,13 +66,13 @@
     
     //分享
     if (ZXGWebPageDisplayTypeNormal == _contentModel.type) {
-        
+        [self createSubViews:NO];
     }
     else if (ZXGWebPageDisplayTypeShare == _contentModel.type) {
         [self createSubViews:YES];
-        //加载链接
-        [self loadWebviewUrl:_contentModel.articleLinkStr];
     }
+    //加载链接
+    [self loadWebviewUrl:_contentModel.articleLinkStr];
 }
 
 // hasShare   导航栏右边是否有分享按钮 YES:显示右边按钮  NO:不显示右边按钮

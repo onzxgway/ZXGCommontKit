@@ -6,11 +6,21 @@
 //
 
 
+@protocol ZXGTableViewCellDelegate <NSObject>
+
+@end
+
 @protocol ZXGTableViewCellAble <NSObject>
 
 @required
 
 // 子类重写
-- (void)settingModel:(id<ZXGTableViewCellModelAble>)model secModel:(ZXGBaseTableViewSectionModel *)secModel indexPath:(NSIndexPath *)indexPath;
+- (void)settingModel:(id<ZXGTableViewCellModelAble>)model secModel:(ZXGBaseTableViewSectionModel *_Nonnull)secModel indexPath:(NSIndexPath *_Nonnull)indexPath;
+
+@optional
+
+@property (nonatomic, weak  , nullable) id<ZXGTableViewCellDelegate> delegate;
 
 @end
+
+
