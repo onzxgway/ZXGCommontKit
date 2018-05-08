@@ -45,8 +45,8 @@
         _tableView.dataSourceArr = self.dataSource;
         //        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         //        _tableView.scrollIndicatorInsets = _tableView.contentInset;
-        _tableView.backgroundColor = kRandomColor;
-        _tableView.backgroundView.backgroundColor = kRandomColor;
+        _tableView.backgroundColor = kWhiteColor;
+        _tableView.backgroundView.backgroundColor = kWhiteColor;
         _tableView.controller = self;
     }
     return _tableView;
