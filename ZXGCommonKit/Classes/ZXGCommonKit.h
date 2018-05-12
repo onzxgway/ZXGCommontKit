@@ -39,6 +39,7 @@
 #import "UIImage+Common.h"
 #import "NSString+Common.h"
 #import "UIViewController+XXXExtension.h"
+#import "UIViewController+Swizzled.h"
 #import "UIView+XXXExtension.h"
 #import "UIColor+XXXExtension.h"
 #import "CALayer+XXXExtension.h"
