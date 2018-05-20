@@ -19,7 +19,7 @@
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:coder];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         [self prepare];
     }
@@ -89,5 +89,20 @@
     downViewFrame.origin.x = (CGRectGetWidth(self.frame) - CGRectGetWidth(downViewFrame)) * 0.5;
     downView.frame = downViewFrame;
 }
+
+//- (void)setImage:(UIImage *)image forState:(UIControlState)state {
+//    [super setImage:image forState:state];
+//    [self setNeedsLayout];
+//}
+//
+//- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+//    [super setTitle:title forState:state];
+//    [self setNeedsLayout];
+//}
+//
+//- (void)setMidSpacing:(CGFloat)midSpacing {
+//    _midSpacing = midSpacing;
+//    [self setNeedsLayout];
+//}
 
 @end
