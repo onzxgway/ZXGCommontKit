@@ -12,7 +12,7 @@
 
 - (NSString *)description {
     
-    NSString *desStr = [NSString stringWithFormat:@"%@:{",NSStringFromClass([self class])];
+    NSString *desStr = [NSString stringWithFormat:@" %@:{",NSStringFromClass([self class])];
     
     Class tempClass = [self class];
     //循环执行 直到父类循环到 NSObject 为止
