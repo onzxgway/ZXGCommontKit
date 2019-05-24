@@ -9,9 +9,9 @@
 
 @required
 
-@property (nonatomic, copy) NSString *reuseIdentifier;  //cell重用标识符
+@property (nonatomic, copy) NSString *reuseIdentifier;  // cell重用标识符
 
-@property (nonatomic) Class cellClass;                  //cell类
+@property (nonatomic) Class cellClass;                  // cell类
 
 @property (nonatomic) CGFloat rowHeight;                // cell行高
 

@@ -192,6 +192,6 @@ NS_ASSUME_NONNULL_END
 #define kClearColor         [UIColor clearColor]
 #endif
 
-#ifndef kRandomColor
-#define kRandomColor        RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#ifndef UIColorRandomColor
+#define UIColorRandomColor        RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 #endif

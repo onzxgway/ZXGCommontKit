@@ -141,7 +141,7 @@
         CGRect navFrame = self.navigationController.navigationBar.frame;
         _progressLayer = [CALayer layer];
         _progressLayer.frame = CGRectMake(0, navFrame.size.height, 0, 2.0f);
-        _progressLayer.backgroundColor = kRandomColor.CGColor;
+        _progressLayer.backgroundColor = UIColorRandomColor.CGColor;
     }
     return _progressLayer;
 }

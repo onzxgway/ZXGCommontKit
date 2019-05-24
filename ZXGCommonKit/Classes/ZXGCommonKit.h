@@ -25,7 +25,7 @@
 #import "ZXGTableViewCellModelAble.h"
 #import "ZXGRootTableViewCell.h"
 #import "ZXGTableViewCellAble.h"
-#import "ZXGBaseTableViewController.h"
+#import "XGBaseTableViewController.h" //#import "ZXGBaseTableViewController.h"
 
 /**************三方************/
 #import "UIButton+WebCache.h"

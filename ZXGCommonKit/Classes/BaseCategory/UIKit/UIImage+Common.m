@@ -262,10 +262,10 @@
 }
 
 + (UIImage *)imageWithRandomColor:(CGSize)size {
-    return [UIImage imageWithColor:kRandomColor size:size];
+    return [UIImage imageWithColor:UIColorRandomColor size:size];
 }
 + (UIImage *)imageWithRandomColor {
-    return [UIImage imageWithColor:kRandomColor size:CGSizeMake(1, 1)];
+    return [UIImage imageWithColor:UIColorRandomColor size:CGSizeMake(1, 1)];
 }
 
 @end

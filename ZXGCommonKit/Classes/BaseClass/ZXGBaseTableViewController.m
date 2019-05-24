@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
-    self.view.backgroundColor = kRandomColor;
+    self.view.backgroundColor = UIColorRandomColor;
 }
 
 #pragma mark - CreateViews
