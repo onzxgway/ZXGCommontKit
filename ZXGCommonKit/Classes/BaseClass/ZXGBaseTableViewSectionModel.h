@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)removeAllCellModel;
 
-- (id<ZXGTableViewCellModelAble>)modelAtIndex:(NSUInteger)index;
+- (id<ZXGTableViewCellModelAble> _Nullable)modelAtIndex:(NSUInteger)index;
 
 - (NSUInteger)indexOfModel:(id<ZXGTableViewCellModelAble>)anObject;
 
