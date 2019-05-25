@@ -7,10 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol EMBaseTableViewCellModelAble <NSObject>
 
 @required
+
+//@property (nonatomic, copy) NSString *reuseIdentifier;  // cell重用标识符
 
 @property (nonatomic) Class cellClass;                  // cell类 cell重用标识符
 

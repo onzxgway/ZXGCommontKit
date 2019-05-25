@@ -7,6 +7,7 @@
 
 #import "EMBaseTableViewController.h"
 #import <Masonry.h>
+#import "UITableViewCell+EMBaseCell.h"
 
 @interface EMBaseTableViewController ()
 
@@ -21,6 +22,10 @@
     
     [self.view addSubview:self.tableView];
     [self layoutTableView];
+    
+    //
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
 }
 
 - (void)layoutTableView {
@@ -71,11 +76,11 @@
         cellModel.cellClass = UITableViewCell.class;
     }
     NSString *reuseIdentifier = NSStringFromClass(cellModel.cellClass);
-    EMBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
         id tableViewCell = [[cellModel.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 //        NSAssert([tableViewCell isKindOfClass:EMBaseTableViewCell.class], @"[cell 必须继承自 EMBaseTableViewCell]");
-        cell = (EMBaseTableViewCell *)tableViewCell;
+        cell = tableViewCell;
     }
     
     [cell settingWithCellModel:cellModel sectionModel:secModel atIndexPath:indexPath];
@@ -88,6 +93,114 @@
     EMBaseTableViewSectionModel *secModel = [self.dataSource objectAtIndex:indexPath.section];
     id<EMBaseTableViewCellModelAble> cellModel = [secModel.cellModelArray objectAtIndex:indexPath.row];
     return cellModel.rowHeight <= 0 ? 44.f : cellModel.rowHeight;
+}
+
+#pragma mark - EMEmptyDataSetSource
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    
+    NSString *text = @"暂无数据，网络失败呢!";
+    UIFont *font = [UIFont boldSystemFontOfSize:17.0];
+    UIColor *textColor = [UIColor lightGrayColor];
+    if (!text) {
+        return nil;
+    }
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    if (font) [attributes setObject:font forKey:NSFontAttributeName];
+    if (textColor) [attributes setObject:textColor forKey:NSForegroundColorAttributeName];
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = nil; //@"如果想要数据，请点击刷新";
+    UIFont *font = [UIFont boldSystemFontOfSize:15.0];
+    UIColor *textColor = [UIColor lightGrayColor];
+    if (!text) {
+        return nil;
+    }
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+
+    if (font) [attributes setObject:font forKey:NSFontAttributeName];
+    if (textColor) [attributes setObject:textColor forKey:NSForegroundColorAttributeName];
+    if (paragraph) [attributes setObject:paragraph forKey:NSParagraphStyleAttributeName];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:attributes];
+    return attributedString;
+}
+
+- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    animation.toValue = [NSValue valueWithCATransform3D: CATransform3DMakeRotation(M_PI_2, 0.0, 0.0, 1.0) ];
+    animation.duration = 0.25;
+    animation.cumulative = YES;
+    animation.repeatCount = MAXFLOAT;
+    
+    return animation;
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+
+    NSString *text = @"Start Refreshing";
+    UIFont *font = [UIFont boldSystemFontOfSize:16.0];
+    UIColor *textColor = (state == UIControlStateNormal) ? [UIColor blueColor] : [UIColor redColor];
+    if (!text) {
+        return nil;
+    }
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    if (font) [attributes setObject:font forKey:NSFontAttributeName];
+    if (textColor) [attributes setObject:textColor forKey:NSForegroundColorAttributeName];
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIColor whiteColor];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    CGFloat offset = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    offset += CGRectGetHeight(self.navigationController.navigationBar.frame);
+    return -offset;
+    
+    return -roundf(self.tableView.frame.size.height/2.5);
+    
+    return 0.0;
+}
+
+- (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView {
+    return 8.0;
+}
+
+#pragma mark - EMEmptyDataSetDelegate
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView {
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView {
+    return YES;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
+    
 }
 
 #pragma mark - Lazy Load

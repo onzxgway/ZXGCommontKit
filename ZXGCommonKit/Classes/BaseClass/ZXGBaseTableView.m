@@ -56,13 +56,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
-    id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
+    id<EMBaseTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
     if (!model.cellClass) {
-        NSAssert(NO, @"[<cellClass> 不能为空]");
+        model.cellClass = UITableViewCell.class;
     }
-    UITableViewCell<ZXGTableViewCellAble> *cell = [tableView dequeueReusableCellWithIdentifier:model.reuseIdentifier];
+    NSString *reuseIdentifier = NSStringFromClass(model.cellClass);
+    UITableViewCell<ZXGTableViewCellAble> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
-        cell = [(UITableViewCell<ZXGTableViewCellAble> *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:model.reuseIdentifier];
+        cell = [(UITableViewCell<ZXGTableViewCellAble> *)[model.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         cell.delegate = _controller;
     }
     [cell settingModel:model secModel:sectionModel indexPath:indexPath];
@@ -88,7 +89,7 @@
     if (_dataSourceArr.count == 0) return 0;
     
     ZXGBaseTableViewSectionModel *sectionModel = [_dataSourceArr objectAtIndex:indexPath.section];
-    id<ZXGTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
+    id<EMBaseTableViewCellModelAble> model = [sectionModel modelAtIndex:indexPath.row];
     return model.rowHeight <= 0 ? 44 : model.rowHeight;
 }
 

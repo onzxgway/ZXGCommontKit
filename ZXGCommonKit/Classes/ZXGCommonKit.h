@@ -22,15 +22,15 @@
 #import "ZXGBaseTableView.h"
 #import "ZXGRootModel.h"
 #import "ZXGBaseTableViewSectionModel.h"
-#import "ZXGTableViewCellModelAble.h"
 #import "ZXGRootTableViewCell.h"
 #import "ZXGTableViewCellAble.h"
 
 /************TableView套件**************/
-#import "EMBaseTableViewController.h" //#import "ZXGBaseTableViewController.h"
+#import "EMBaseTableViewController.h" 
 #import "EMBaseTableViewSectionModelAble.h"
 #import "EMBaseTableViewSectionModel.h"
 #import "UITableViewCell+EMBaseCell.h"
+#import "UIScrollView+EMEmptyDataSet.h"
 
 /**************三方************/
 #import "UIButton+WebCache.h"

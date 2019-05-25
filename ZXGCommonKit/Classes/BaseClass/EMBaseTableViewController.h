@@ -6,13 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EMBaseTableViewCell.h"
 #import "EMBaseTableViewSectionModel.h"
+#import "UIScrollView+EMEmptyDataSet.h"
 
 @interface EMBaseTableViewController : UIViewController
 <
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+EMEmptyDataSetSource,
+EMEmptyDataSetDelegate
 > {
     @protected
     UITableView *_tableView;

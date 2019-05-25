@@ -6,27 +6,27 @@
 //
 
 #import "ZXGRootModel.h"
-#import "ZXGTableViewCellModelAble.h"
+#import "EMBaseTableViewSectionModelAble.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZXGBaseTableViewSectionModel : ZXGRootModel
 
-- (void)addCellModel:(id<ZXGTableViewCellModelAble>)model;
+- (void)addCellModel:(id<EMBaseTableViewCellModelAble>)model;
 
-- (void)addCellModels:(NSMutableArray<id<ZXGTableViewCellModelAble>> *)models;
+- (void)addCellModels:(NSMutableArray<id<EMBaseTableViewCellModelAble>> *)models;
 
 - (NSUInteger)cellModelsCount;
 
-- (void)removeCellModel:(id<ZXGTableViewCellModelAble>)model;
+- (void)removeCellModel:(id<EMBaseTableViewCellModelAble>)model;
 
 - (void)removeCellModelAtIndex:(NSUInteger)index;
 
 - (void)removeAllCellModel;
 
-- (id<ZXGTableViewCellModelAble> _Nullable)modelAtIndex:(NSUInteger)index;
+- (id<EMBaseTableViewCellModelAble> _Nullable)modelAtIndex:(NSUInteger)index;
 
-- (NSUInteger)indexOfModel:(id<ZXGTableViewCellModelAble>)anObject;
+- (NSUInteger)indexOfModel:(id<EMBaseTableViewCellModelAble>)anObject;
 
 @end
 
