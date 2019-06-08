@@ -15,7 +15,7 @@
 @required
 
 // 子类重写
-- (void)settingModel:(id<EMBaseTableViewCellModelAble>)model secModel:(ZXGBaseTableViewSectionModel *_Nonnull)secModel indexPath:(NSIndexPath *_Nonnull)indexPath;
+- (void)settingModel:(id<EMBaseTableViewCellModelAble>_Nullable)model secModel:(ZXGBaseTableViewSectionModel *_Nonnull)secModel indexPath:(NSIndexPath *_Nonnull)indexPath;
 
 @optional
 
